@@ -1,0 +1,29 @@
+<platform name="hw_em" ipiboard="">
+  <version major="1" minor="0"/>
+  <description>System Emulation</description>
+  <board name="Genric PCIe based emulation model (Internal)" vendor="Xilinx" fpga="7-Series">
+    <interfaces>
+      <interface id="int1" name="PCIe" type="gen2x8"/>
+    </interfaces>
+    <memories>
+      <memory name="mem1" type="DDR3" size="4GB"/>
+    </memories>
+    <driver>libhw_em.so</driver>
+    <id>
+      <vendor>0x10ee</vendor>
+      <device>0x7028</device>
+      <subsystem>0x0001</subsystem>
+    </id>
+  </board>
+  <build_flow>pcie_hw_em</build_flow>
+  <host architecture="x86_64"/>
+  <device name="cpu0" type="2" addrWidth="64">
+    <core name="cpu0" type="cpu" numComputeUnits="1"/>
+  </device>
+  <device name="fpga0" type="8" addrWidth="32" fpgaDevice="virtex:xc7vx690t:ffg1157:-2">
+    <core name="OCL_REGION_0" type="clc_region" clockFreq="167MHz" numComputeUnits="10">
+      <port name="M_AXI_GMEM0" portType="addressable" mode="master" base="0x00000000" range="0x40000000" dataWidth="512"/>
+      <port name="S_AXI_CONTROL0" portType="addressable" mode="slave" base="0x0" range="0x00010000" dataWidth="32"/>
+    </core>
+  </device>
+</platform>

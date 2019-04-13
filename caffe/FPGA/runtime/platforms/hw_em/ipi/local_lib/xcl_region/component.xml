@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spirit:component xmlns:xilinx="http://www.xilinx.com"
+		xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<spirit:vendor>xilinx.com</spirit:vendor>
+	<spirit:library>ip</spirit:library>
+	<spirit:name>xcl_region</spirit:name>
+	<spirit:version>1.0</spirit:version>
+	<spirit:model>
+		<spirit:views>
+			<spirit:view>
+				<spirit:name>xilinx_blockdiagram</spirit:name>
+				<spirit:displayName>Block Diagram</spirit:displayName>
+				<spirit:envIdentifier>:vivado.xilinx.com:block.diagram</spirit:envIdentifier>
+				<spirit:fileSetRef>
+					<spirit:localName>xilinx_blockdiagram_view_fileset</spirit:localName>
+				</spirit:fileSetRef>
+			</spirit:view>
+			<spirit:view>
+				<spirit:name>xilinx_xpgui</spirit:name>
+				<spirit:displayName>UI Layout</spirit:displayName>
+				<spirit:envIdentifier>:vivado.xilinx.com:xgui.ui</spirit:envIdentifier>
+				<spirit:fileSetRef>
+					<spirit:localName>xilinx_xpgui_view_fileset</spirit:localName>
+				</spirit:fileSetRef>
+			</spirit:view>
+		</spirit:views>
+  </spirit:model>
+  <spirit:choices>
+		<spirit:choice>
+			<spirit:name>choice_datawidth</spirit:name>
+			<spirit:enumeration spirit:text="2">2</spirit:enumeration>
+			<spirit:enumeration spirit:text="4">4</spirit:enumeration>
+			<spirit:enumeration spirit:text="8">8</spirit:enumeration>
+			<spirit:enumeration spirit:text="16">16</spirit:enumeration>
+			<spirit:enumeration spirit:text="32">32</spirit:enumeration>
+			<spirit:enumeration spirit:text="64">64</spirit:enumeration>
+			<spirit:enumeration spirit:text="128">128</spirit:enumeration>
+			<spirit:enumeration spirit:text="256">256</spirit:enumeration>
+			<spirit:enumeration spirit:text="512">512</spirit:enumeration>
+		</spirit:choice>
+  </spirit:choices>
+	<spirit:fileSets>
+		<spirit:fileSet>
+			<spirit:name>xilinx_blockdiagram_view_fileset</spirit:name>
+			<spirit:file>
+				<spirit:name>bd/bd.tcl</spirit:name>
+				<spirit:fileType>tclSource</spirit:fileType>
+				<spirit:userFileType>appcore</spirit:userFileType>
+			</spirit:file>
+		</spirit:fileSet>
+		<spirit:fileSet>
+			<spirit:name>xilinx_xpgui_view_fileset</spirit:name>
+			<spirit:file>
+				<spirit:name>xgui/xcl_region_v1_0.tcl</spirit:name>
+				<spirit:fileType>tclSource</spirit:fileType>
+			</spirit:file>
+    </spirit:fileSet>
+  </spirit:fileSets>
+	<spirit:description>The OpenCL region is a placeholder for cores to be instantiated</spirit:description>
+	<spirit:parameters>
+		<spirit:parameter>
+			<spirit:name>Component_Name</spirit:name>
+			<spirit:value spirit:resolve="user"
+					spirit:id="PARAM_VALUE.Component_Name"
+					spirit:order="1">test</spirit:value>
+		</spirit:parameter>
+		<spirit:parameter>
+			<spirit:name>NUM_SI</spirit:name>
+			<spirit:displayName>Number of Slave Interfaces</spirit:displayName>
+			<spirit:value spirit:format="long"
+					spirit:resolve="user"
+					spirit:id="PARAM_VALUE.NUM_SI"
+					spirit:order="2"
+					spirit:minimum="1"
+					spirit:maximum="16">1</spirit:value>
+		</spirit:parameter>
+		<spirit:parameter>
+			<spirit:name>NUM_MI</spirit:name>
+			<spirit:displayName>Number of Master Interfaces</spirit:displayName>
+			<spirit:value spirit:format="long"
+					spirit:resolve="user"
+					spirit:id="PARAM_VALUE.NUM_MI"
+					spirit:order="3"
+					spirit:minimum="1"
+					spirit:maximum="16">2</spirit:value>
+		</spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S00_ID_WIDTH</spirit:name>
+      <spirit:displayName>ID Width of Slave Port S00</spirit:displayName>
+      <spirit:value spirit:format="long" 
+        spirit:resolve="user" 
+        spirit:id="PARAM_VALUE.S00_ID_WIDTH" 
+        spirit:minimum="1"
+        spirit:maximum="16">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S01_ID_WIDTH</spirit:name>
+      <spirit:displayName>ID Width of Slave Port S01</spirit:displayName>
+      <spirit:value spirit:format="long" 
+        spirit:resolve="user" 
+        spirit:id="PARAM_VALUE.S01_ID_WIDTH" 
+        spirit:minimum="1"
+        spirit:maximum="16">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S02_ID_WIDTH</spirit:name>
+      <spirit:displayName>ID Width of Slave Port S02</spirit:displayName>
+      <spirit:value spirit:format="long" 
+        spirit:resolve="user" 
+        spirit:id="PARAM_VALUE.S02_ID_WIDTH" 
+        spirit:minimum="1"
+        spirit:maximum="16">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S03_ID_WIDTH</spirit:name>
+      <spirit:displayName>ID Width of Slave Port S03</spirit:displayName>
+      <spirit:value spirit:format="long" 
+        spirit:resolve="user" 
+        spirit:id="PARAM_VALUE.S03_ID_WIDTH" 
+        spirit:minimum="1"
+        spirit:maximum="16">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S04_ID_WIDTH</spirit:name>
+      <spirit:displayName>ID Width of Slave Port S04</spirit:displayName>
+      <spirit:value spirit:format="long" 
+        spirit:resolve="user" 
+        spirit:id="PARAM_VALUE.S04_ID_WIDTH" 
+        spirit:minimum="1"
+        spirit:maximum="16">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S05_ID_WIDTH</spirit:name>
+      <spirit:displayName>ID Width of Slave Port S05</spirit:displayName>
+      <spirit:value spirit:format="long" 
+        spirit:resolve="user" 
+        spirit:id="PARAM_VALUE.S05_ID_WIDTH" 
+        spirit:minimum="1"
+        spirit:maximum="16">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S06_ID_WIDTH</spirit:name>
+      <spirit:displayName>ID Width of Slave Port S06</spirit:displayName>
+      <spirit:value spirit:format="long" 
+        spirit:resolve="user" 
+        spirit:id="PARAM_VALUE.S06_ID_WIDTH" 
+        spirit:minimum="1"
+        spirit:maximum="16">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S07_ID_WIDTH</spirit:name>
+      <spirit:displayName>ID Width of Slave Port S07</spirit:displayName>
+      <spirit:value spirit:format="long" 
+        spirit:resolve="user" 
+        spirit:id="PARAM_VALUE.S07_ID_WIDTH" 
+        spirit:minimum="1"
+        spirit:maximum="16">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S08_ID_WIDTH</spirit:name>
+      <spirit:displayName>ID Width of Slave Port S08</spirit:displayName>
+      <spirit:value spirit:format="long" 
+        spirit:resolve="user" 
+        spirit:id="PARAM_VALUE.S08_ID_WIDTH" 
+        spirit:minimum="1"
+        spirit:maximum="16">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S09_ID_WIDTH</spirit:name>
+      <spirit:displayName>ID Width of Slave Port S09</spirit:displayName>
+      <spirit:value spirit:format="long" 
+        spirit:resolve="user" 
+        spirit:id="PARAM_VALUE.S09_ID_WIDTH" 
+        spirit:minimum="1"
+        spirit:maximum="16">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S10_ID_WIDTH</spirit:name>
+      <spirit:displayName>ID Width of Slave Port S10</spirit:displayName>
+      <spirit:value spirit:format="long" 
+        spirit:resolve="user" 
+        spirit:id="PARAM_VALUE.S10_ID_WIDTH" 
+        spirit:minimum="1"
+        spirit:maximum="16">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S11_ID_WIDTH</spirit:name>
+      <spirit:displayName>ID Width of Slave Port S11</spirit:displayName>
+      <spirit:value spirit:format="long" 
+        spirit:resolve="user" 
+        spirit:id="PARAM_VALUE.S11_ID_WIDTH" 
+        spirit:minimum="1"
+        spirit:maximum="16">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S12_ID_WIDTH</spirit:name>
+      <spirit:displayName>ID Width of Slave Port S12</spirit:displayName>
+      <spirit:value spirit:format="long" 
+        spirit:resolve="user" 
+        spirit:id="PARAM_VALUE.S12_ID_WIDTH" 
+        spirit:minimum="1"
+        spirit:maximum="16">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S13_ID_WIDTH</spirit:name>
+      <spirit:displayName>ID Width of Slave Port S13</spirit:displayName>
+      <spirit:value spirit:format="long" 
+        spirit:resolve="user" 
+        spirit:id="PARAM_VALUE.S13_ID_WIDTH" 
+        spirit:minimum="1"
+        spirit:maximum="16">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S14_ID_WIDTH</spirit:name>
+      <spirit:displayName>ID Width of Slave Port S14</spirit:displayName>
+      <spirit:value spirit:format="long" 
+        spirit:resolve="user" 
+        spirit:id="PARAM_VALUE.S14_ID_WIDTH" 
+        spirit:minimum="1"
+        spirit:maximum="16">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S15_ID_WIDTH</spirit:name>
+      <spirit:displayName>ID Width of Slave Port S15</spirit:displayName>
+      <spirit:value spirit:format="long" 
+        spirit:resolve="user" 
+        spirit:id="PARAM_VALUE.S15_ID_WIDTH" 
+        spirit:minimum="1"
+        spirit:maximum="16">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>M00_DATA_WIDTH</spirit:name>
+      <spirit:displayName>Data Width of Master Port M00</spirit:displayName>
+      <spirit:value spirit:format="long" 
+        spirit:resolve="user" 
+        spirit:id="PARAM_VALUE.M00_DATA_WIDTH" 
+        spirit:choiceRef="choice_datawidth"
+        spirit:order="1000">32</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>M01_DATA_WIDTH</spirit:name>
+      <spirit:displayName>Data Width of Master Port M01</spirit:displayName>
+      <spirit:value spirit:format="long" 
+        spirit:resolve="user" 
+        spirit:id="PARAM_VALUE.M01_DATA_WIDTH" 
+        spirit:choiceRef="choice_datawidth"
+        spirit:order="1001">32</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>M02_DATA_WIDTH</spirit:name>
+      <spirit:displayName>Data Width of Master Port M02</spirit:displayName>
+      <spirit:value spirit:format="long" 
+        spirit:resolve="user" 
+        spirit:id="PARAM_VALUE.M02_DATA_WIDTH" 
+        spirit:choiceRef="choice_datawidth"
+        spirit:order="1002">32</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>M03_DATA_WIDTH</spirit:name>
+      <spirit:displayName>Data Width of Master Port M03</spirit:displayName>
+      <spirit:value spirit:format="long" 
+        spirit:resolve="user" 
+        spirit:id="PARAM_VALUE.M03_DATA_WIDTH" 
+        spirit:choiceRef="choice_datawidth"
+        spirit:order="1003">32</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>M04_DATA_WIDTH</spirit:name>
+      <spirit:displayName>Data Width of Master Port M04</spirit:displayName>
+      <spirit:value spirit:format="long" 
+        spirit:resolve="user" 
+        spirit:id="PARAM_VALUE.M04_DATA_WIDTH" 
+        spirit:choiceRef="choice_datawidth"
+        spirit:order="1004">32</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>M05_DATA_WIDTH</spirit:name>
+      <spirit:displayName>Data Width of Master Port M05</spirit:displayName>
+      <spirit:value spirit:format="long" 
+        spirit:resolve="user" 
+        spirit:id="PARAM_VALUE.M05_DATA_WIDTH" 
+        spirit:choiceRef="choice_datawidth"
+        spirit:order="1005">32</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>M06_DATA_WIDTH</spirit:name>
+      <spirit:displayName>Data Width of Master Port M06</spirit:displayName>
+      <spirit:value spirit:format="long" 
+        spirit:resolve="user" 
+        spirit:id="PARAM_VALUE.M06_DATA_WIDTH" 
+        spirit:choiceRef="choice_datawidth"
+        spirit:order="1006">32</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>M07_DATA_WIDTH</spirit:name>
+      <spirit:displayName>Data Width of Master Port M07</spirit:displayName>
+      <spirit:value spirit:format="long" 
+        spirit:resolve="user" 
+        spirit:id="PARAM_VALUE.M07_DATA_WIDTH" 
+        spirit:choiceRef="choice_datawidth"
+        spirit:order="1007">32</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>M08_DATA_WIDTH</spirit:name>
+      <spirit:displayName>Data Width of Master Port M08</spirit:displayName>
+      <spirit:value spirit:format="long" 
+        spirit:resolve="user" 
+        spirit:id="PARAM_VALUE.M08_DATA_WIDTH" 
+        spirit:choiceRef="choice_datawidth"
+        spirit:order="1008">32</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>M09_DATA_WIDTH</spirit:name>
+      <spirit:displayName>Data Width of Master Port M09</spirit:displayName>
+      <spirit:value spirit:format="long" 
+        spirit:resolve="user" 
+        spirit:id="PARAM_VALUE.M09_DATA_WIDTH" 
+        spirit:choiceRef="choice_datawidth"
+        spirit:order="1009">32</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>M10_DATA_WIDTH</spirit:name>
+      <spirit:displayName>Data Width of Master Port M10</spirit:displayName>
+      <spirit:value spirit:format="long" 
+        spirit:resolve="user" 
+        spirit:id="PARAM_VALUE.M10_DATA_WIDTH" 
+        spirit:choiceRef="choice_datawidth"
+        spirit:order="1010">32</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>M11_DATA_WIDTH</spirit:name>
+      <spirit:displayName>Data Width of Master Port M11</spirit:displayName>
+      <spirit:value spirit:format="long" 
+        spirit:resolve="user" 
+        spirit:id="PARAM_VALUE.M11_DATA_WIDTH" 
+        spirit:choiceRef="choice_datawidth"
+        spirit:order="1011">32</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>M12_DATA_WIDTH</spirit:name>
+      <spirit:displayName>Data Width of Master Port M12</spirit:displayName>
+      <spirit:value spirit:format="long" 
+        spirit:resolve="user" 
+        spirit:id="PARAM_VALUE.M12_DATA_WIDTH" 
+        spirit:choiceRef="choice_datawidth"
+        spirit:order="1012">32</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>M13_DATA_WIDTH</spirit:name>
+      <spirit:displayName>Data Width of Master Port M13</spirit:displayName>
+      <spirit:value spirit:format="long" 
+        spirit:resolve="user" 
+        spirit:id="PARAM_VALUE.M13_DATA_WIDTH" 
+        spirit:choiceRef="choice_datawidth"
+        spirit:order="1013">32</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>M14_DATA_WIDTH</spirit:name>
+      <spirit:displayName>Data Width of Master Port M14</spirit:displayName>
+      <spirit:value spirit:format="long" 
+        spirit:resolve="user" 
+        spirit:id="PARAM_VALUE.M14_DATA_WIDTH" 
+        spirit:choiceRef="choice_datawidth"
+        spirit:order="1014">32</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>M15_DATA_WIDTH</spirit:name>
+      <spirit:displayName>Data Width of Master Port M15</spirit:displayName>
+      <spirit:value spirit:format="long" 
+        spirit:resolve="user" 
+        spirit:id="PARAM_VALUE.M15_DATA_WIDTH" 
+        spirit:choiceRef="choice_datawidth"
+        spirit:order="1015">32</spirit:value>
+    </spirit:parameter>
+	</spirit:parameters>
+	<spirit:vendorExtensions>
+		<xilinx:coreExtensions>
+			<xilinx:supportedFamilies>
+				<xilinx:family xilinx:lifeCycle="Pre-Production">aartix7</xilinx:family>
+				<xilinx:family xilinx:lifeCycle="Production">artix7</xilinx:family>
+				<xilinx:family xilinx:lifeCycle="Pre-Production">artix7l</xilinx:family>
+				<xilinx:family xilinx:lifeCycle="Pre-Production">azynq</xilinx:family>
+				<xilinx:family xilinx:lifeCycle="Production">kintex7</xilinx:family>
+				<xilinx:family xilinx:lifeCycle="Production">kintex7l</xilinx:family>
+				<xilinx:family xilinx:lifeCycle="Pre-Production">qartix7</xilinx:family>
+				<xilinx:family xilinx:lifeCycle="Pre-Production">qartix7l</xilinx:family>
+				<xilinx:family xilinx:lifeCycle="Production">qkintex7</xilinx:family>
+				<xilinx:family xilinx:lifeCycle="Production">qkintex7l</xilinx:family>
+				<xilinx:family xilinx:lifeCycle="Production">qvirtex7</xilinx:family>
+				<xilinx:family xilinx:lifeCycle="Pre-Production">qzynq</xilinx:family>
+				<xilinx:family xilinx:lifeCycle="Production">virtex7</xilinx:family>
+				<xilinx:family xilinx:lifeCycle="Production">zynq</xilinx:family>
+			</xilinx:supportedFamilies>
+			<xilinx:taxonomies>
+				<xilinx:taxonomy>/AXI_Infrastructure</xilinx:taxonomy>
+			</xilinx:taxonomies>
+			<xilinx:displayName>Xilinx OpenCL Region</xilinx:displayName>
+			<xilinx:vendorURL>http://www.xilinx.com</xilinx:vendorURL>
+			<xilinx:coreRevision>128000</xilinx:coreRevision>
+			<xilinx:coreCreationDateTime>2013-03-25T17:07:51</xilinx:coreCreationDateTime>
+		</xilinx:coreExtensions>
+		<xilinx:packagingInfo>
+			<xilinx:xilinxVersion>2013.1</xilinx:xilinxVersion>
+		</xilinx:packagingInfo>
+	</spirit:vendorExtensions>
+</spirit:component>
