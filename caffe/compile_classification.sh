@@ -1,0 +1,24 @@
+
+if [ "$1" = "cpu" ] ; then
+
+gcc examples/cpp_classification/classification.cpp -g -Wall -D FPGA_DEVICE -D C_KERNEL -MMD -MP -pthread -fPIC -DCAFFE_VERSION=1.0.0-rc3 -DNDEBUG -O2 -DUSE_OPENCV -DUSE_LEVELDB -DUSE_LMDB -DCPU_ONLY -I/curr/chenz/tools/OpenBLAS/OpenBLAS_install/include -I/curr/chenz/tools/boost_1_55_0/install/include -I/home/cdscdemo/tools/opencv/build/include -I/curr/chenz/tools/glog-0.3.3/build/install/include -I/curr/chenz/tools/gflags-master/build/include -I/curr/diwu/tools/protobuf-2.5.0/build/install/include -I/curr/chenz/tools/hdf5_install/include -I/usr/local/include -I.build_release/src -I./src -I./include -Wall -Wno-sign-compare -c -o .build_release/examples/cpp_classification/classification.o 2> .build_release/examples/cpp_classification/classification.o.warnings.txt \
+	|| (cat .build_release/examples/cpp_classification/classification.o.warnings.txt; exit 1)
+
+gcc .build_release/examples/cpp_classification/classification.o -o .build_release/examples/cpp_classification/classification.bin -g -Wall -D C_KERNEL -pthread -fPIC -DCAFFE_VERSION=1.0.0-rc3 -DNDEBUG -O2 -DUSE_OPENCV -DUSE_LEVELDB -DUSE_LMDB -DCPU_ONLY -I/curr/chenz/tools/boost_1_55_0/install/include -I/home/cdscdemo/tools/opencv/build/include -I/curr/chenz/tools/glog-0.3.3/build/install/include -I/curr/chenz/tools/gflags-master/build/include -I/curr/diwu/tools/protobuf-2.5.0/build/install/include -I/curr/chenz/tools/hdf5_install/include -I/usr/local/include -I.build_release/src -I./src -I./include  -Wall -Wno-sign-compare -lcaffe -L/curr/chenz/tools/OpenBLAS/OpenBLAS_install/lib -L/curr/chenz/tools/boost_1_55_0/install/lib -L/home/cdscdemo/tools/opencv/build/lib -L/curr/chenz/tools/glog-0.3.3/build/install/lib -L/curr/chenz/tools/gflags-master/build/lib -L/curr/diwu/tools/protobuf-2.5.0/build/install/lib -L/curr/chenz/tools/hdf5_install/lib -L/usr/local/lib -L/usr/lib -L.build_release/lib  -lglog -lgflags -lprotobuf -lboost_system -lboost_filesystem -lm -lhdf5_hl -lhdf5 -lleveldb -lsnappy -llmdb -lopencv_core -lopencv_highgui -lopencv_imgproc -lboost_thread -lstdc++ \
+	-Wl,-rpath,\$ORIGIN/../../lib
+
+elif [ "$1" = "fpga" ] ; then
+
+/space/Xilinx/SDAccel/2015.4/lnx64/tools/gcc/bin/gcc examples/cpp_classification_driverTest/classification_fpga.cpp -g -Wall -D FPGA_DEVICE -D C_KERNEL -MMD -MP -pthread -fPIC -DCAFFE_VERSION=1.0.0-rc3 -DNDEBUG -O2 -DUSE_OPENCV -DUSE_LEVELDB -DUSE_LMDB -DCPU_ONLY -I./FPGA/runtime/include/1_2 -I./FPGA/Vivado_HLS/include -L./FPGA/runtime/lib/x86_64 -lxilinxopencl -I/curr/chenz/tools/OpenBLAS/OpenBLAS_install/include -I/curr/chenz/tools/boost_1_55_0/install/include -I/home/cdscdemo/tools/opencv/build/include -I/curr/chenz/tools/glog-0.3.3/build/install/include -I/curr/chenz/tools/gflags-master/build/include -I/curr/diwu/tools/protobuf-2.5.0/build/install/include -I/curr/chenz/tools/hdf5_install/include -I/usr/local/include -I.build_release/src -I./src -I./include -Wall -Wno-sign-compare -c -o .build_release/examples/cpp_classification_driverTest/classification_fpga.o 2> .build_release/examples/cpp_classification_driverTest/classification_fpga.o.warnings.txt \
+	|| (cat .build_release/examples/cpp_classification_driverTest/classification_fpga.o.warnings.txt; exit 1)
+
+/space/Xilinx/SDAccel/2015.4/lnx64/tools/gcc/bin/gcc .build_release/examples/cpp_classification_driverTest/classification_fpga.o -o .build_release/examples/cpp_classification_driverTest/classification_fpga.bin -g -Wall -D FPGA_DEVICE -D C_KERNEL -pthread -fPIC -DCAFFE_VERSION=1.0.0-rc3 -DNDEBUG -O2 -DUSE_OPENCV -DUSE_LEVELDB -DUSE_LMDB -DCPU_ONLY -L./FPGA/runtime/lib/x86_64 -lxilinxopencl -I/curr/chenz/tools/boost_1_55_0/install/include -I/home/cdscdemo/tools/opencv/build/include -I/curr/chenz/tools/glog-0.3.3/build/install/include -I/curr/chenz/tools/gflags-master/build/include -I/curr/diwu/tools/protobuf-2.5.0/build/install/include -I/curr/chenz/tools/hdf5_install/include -I/usr/local/include -I.build_release/src -I./src -I./include  -Wall -Wno-sign-compare -lcaffe -L/curr/chenz/tools/OpenBLAS/OpenBLAS_install/lib -L/curr/chenz/tools/boost_1_55_0/install/lib -L/home/cdscdemo/tools/opencv/build/lib -L/curr/chenz/tools/glog-0.3.3/build/install/lib -L/curr/chenz/tools/gflags-master/build/lib -L/curr/diwu/tools/protobuf-2.5.0/build/install/lib -L/curr/chenz/tools/hdf5_install/lib -L/usr/local/lib -L/usr/lib -L.build_release/lib  -lglog -lgflags -lprotobuf -lboost_system -lboost_filesystem -lm -lhdf5_hl -lhdf5 -lleveldb -lsnappy -llmdb -lopencv_core -lopencv_highgui -lopencv_imgproc -lboost_thread -lstdc++ \
+	-Wl,-rpath,\$ORIGIN/../../lib
+
+fi
+#-DUSE_MKL 
+#-I/curr/diwu/intel/compilers_and_libraries_2016.3.210/linux/mkl/include
+# -lmkl_rt
+#-L/curr/diwu/intel/compilers_and_libraries_2016.3.210/linux/mkl/lib 
+#-L/curr/diwu/intel/compilers_and_libraries_2016.3.210/linux/mkl/lib/intel64 
+#-I/curr/diwu/intel/compilers_and_libraries_2016.3.210/linux/mkl/include 
