@@ -1,0 +1,11 @@
+===================================
+Configuration Memory information
+===================================
+File Format        MCS
+Interface          BPIX16
+Size               1024M
+Start Address      0x00000000
+End Address        0x3FFFFFFF
+
+Addr1         Addr2         Date                    File(s)
+0x00000000    0x00CA57C7    Jan 31 14:47:14 2016    /proj/isi_group/ipeng/juliank/RDI_juliank_spa_ku3_2ddr_2.1/ku3_2ddr_2.1/.Xil/Vivado-20869-xcolbl6627/dsa/xilinx_adm-pcie-ku3_2ddr_2_1.bit
